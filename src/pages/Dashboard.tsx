@@ -1,14 +1,15 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button"; // Importar o componente Button
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
-import { TrendingUp, Users, ShoppingCart, DollarSign } from "lucide-react";
+import { TrendingUp, Users, ShoppingCart, DollarSign, Upload } from "lucide-react"; // Importar o ícone Upload
 import { useNavigate } from "react-router-dom";
 
 const salesData = [
   { name: "Jan", valor: 4000 },
   { name: "Fev", valor: 3000 },
   { name: "Mar", valor: 5000 },
-  { name: "Abr", valor: 4500 },
+  { name: "Abr", "valor": 4500 },
   { name: "Mai", valor: 6000 },
   { name: "Jun", valor: 5500 },
 ];
@@ -57,6 +58,12 @@ export default function Dashboard() {
     navigate("/auth");
   };
 
+  // Nova função para a ação do botão de importação
+  const handleImport = () => {
+    alert("Funcionalidade de Importar Arquivo acionada!");
+    // Implemente aqui a lógica real de importação de arquivo
+  };
+
   return (
     <div className="flex min-h-screen bg-background">
       <Sidebar onLogout={handleLogout} />
@@ -64,9 +71,18 @@ export default function Dashboard() {
       <main className="flex-1 md:ml-64 p-6 md:p-8 animate-fade-in">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="mb-8 animate-slide-up">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Dashboard</h1>
-            <p className="text-muted-foreground">Visão geral dos seus indicadores</p>
+          {/* Flexbox para alinhar título e botão */}
+          <div className="mb-8 animate-slide-up flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-foreground mb-2">Dashboard</h1>
+              <p className="text-muted-foreground">Visão geral dos seus indicadores</p>
+            </div>
+            
+            {/* Botão de Importar Arquivo */}
+            <Button onClick={handleImport} className="ml-4">
+              <Upload className="mr-2 h-4 w-4" />
+              Importar Arquivo
+            </Button>
           </div>
 
           {/* Stats Grid */}
