@@ -74,8 +74,8 @@ export default function Dashboard() {
           {/* Flexbox para alinhar título e botão */}
           <div className="mb-8 animate-slide-up flex justify-between items-start">
             <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">Dashboard</h1>
-              <p className="text-muted-foreground">Visão geral dos seus indicadores</p>
+              <h1 className="text-3xl font-bold text-foreground mb-2">Scizon AI Dashboard</h1>
+              <p className="text-muted-foreground">Indicadores</p>
             </div>
             
             {/* Botão de Importar Arquivo */}
