@@ -1,20 +1,16 @@
 import React, { useState, useCallback } from "react";
-// Removida a importação de "@/components/Sidebar" para resolver o erro de alias.
-// O componente Sidebar simplificado é definido abaixo.
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"; 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
 import { TrendingUp, Users, ShoppingCart, DollarSign, Upload, Loader2, XCircle } from "lucide-react"; 
 import { useNavigate } from "react-router-dom";
 
-// --- Componente Sidebar Simplificado (Mock) ---
-// Definido aqui para evitar o erro de alias de caminho.
+
 const Sidebar = ({ onLogout }) => {
   return (
     <nav className="fixed left-0 top-0 h-full w-64 bg-card p-6 shadow-xl hidden md:flex flex-col z-10 border-r border-border">
       <div className="flex-1">
         <h2 className="text-2xl font-extrabold mb-10 text-primary">Scizon AI</h2>
-        {/* Placeholder para itens do menu */}
         <div className="space-y-4">
             <div className="flex items-center text-foreground font-medium p-2 rounded-lg bg-accent/50">
                 <TrendingUp className="h-5 w-5 mr-3" /> Dashboard
@@ -35,7 +31,6 @@ const Sidebar = ({ onLogout }) => {
 };
 
 
-// --- Dados Mockados ---
 const salesData = [
   { name: "Jan", valor: 4000 },
   { name: "Fev", valor: 3000 },
@@ -114,7 +109,6 @@ export default function Dashboard() {
       if (Math.random() < 0.8) {
         console.log("Dados a serem enviados (mock):", data);
         setImportFeedback({ message: `Sucesso: ${data.length} registos importados.`, type: 'success' });
-        // Opcional: Recarregar dados do dashboard
       } else {
         throw new Error("Erro de processamento no servidor (Simulado).");
       }
